@@ -13,8 +13,9 @@
 
 
 
-
+\usepackage{graphicx}
 \usepackage{physics}
+\usepackage{amsmath}
 \usepackage{tikz,pgfplots}
 \usepackage[siunitx]{circuitikz} %[symbols]
 \usepackage[outline]{contour} % glow around text
@@ -57,11 +58,9 @@
 % Students: edit in your names here or these people will get credit for your work 
 
 \begin{itemize}
-    \item \#12345678 Sirius {\bf Black} 
-    \item \#24681012 Luna {\bf Lovegood}
-    \item \#87654321 Neville {\bf Longbottom}
-    \item \#12108642 Albus {\bf Dumbledore}
-    \textcolor{red}{\item \#00000000 Mundungus {\bf Fletcher}  (non-contributing)}
+    \item \#66220104 David {\bf Jiang} 
+    \item \#71389423 Adam {\bf Long}
+    \item \#87654321 Zhuyue {\bf Wu}
 \end{itemize}
 
 \begin{tabular*}{6.5in}{c}
@@ -78,7 +77,7 @@
 
 \color{blue}
 \textbf{Answers} \newline 
-Student answer goes here.
+High school mathematics often focuses on individual rules and strategies for solving homogeneous sets of equations. Within this framework of memorization and application of set algorithms, math can have no concept of interdisciplinary application and the value of reasoning beyond what is explicitly taught is similarly undermined. Therefore, math assignments in high school often involve repeating the exact process taught in class to solve a set of problems that are identical in most respects. On the contrary, the previous written assignment was focused on our application of calculus concepts to physics. Specifically, rather than simply getting the correct answer to an equation, we were asked to focus on understanding the implications of mathematical concepts on real-life physical phenomena. 
 \color{black}
 
 
@@ -162,11 +161,30 @@ is a solution of the differential equation (3) with the initial condition $Q(0)=
 \color{blue}
 \textbf{Answers}
 \begin{enumerate}
-    \item Student answer goes here.
-    \item Student answer goes here.
-    \item Student answer goes here.
-    \item Student answer goes here.
-    \item Student answer goes here.
+    \item
+    If we plug in the equation $Q(t) = C{{\cal E}\left(1-e^{-t/RC}\right)}$ into the equation $\frac{dQ}{dt} = \frac{{\cal E}}{R} - \frac{Q}{RC}$ and the equivalence remains true, then we will have confirmed the solution for the differential equation.
+    \begin{align*}
+    \frac{dQ}{dt} &= \frac{{\cal E}}{R} - \frac{Q}{RC} \\
+    \frac{d}{dt}[C{\cal E}(1-e^{-t/RC})] &= \frac{{\cal E}}{R} -  \frac{C{\cal E}(1-e^{-t/RC})}{RC}\\
+    \frac{{\cal E}e^{-t/RC}}{R} &= \frac{{\cal E}}{R} - \frac{{\cal E} - {\cal E}e^{-t/RC}}{R} \\
+    \frac{{\cal E}e^{-t/RC}}{R} &= \frac{{\cal E}}{R} - \frac{{\cal E}}{R} + \frac{{\cal E}e^{-t/RC}}{R}\\
+    \frac{{\cal E}e^{-t/RC}}{R} &= \frac{{\cal E}e^{-t/RC}}{R}\\
+    L.S. &= R.S.
+    \end{align*}
+    \item The graph of $Q$ as a function of $t$ is as follows:
+    
+     \includegraphics[scale=0.2]{./Images/graph1.jpg}
+    \item When we take $\lim_{t \to \infty} C{{\cal E}\left(1-e^{-t/RC}\right)}$, we can immediately substitute $t$ for $\infty$ which gives us $C{{\cal E}\left(1-e^{-\infty/RC}\right)}$. Since the constants $R$ and $C$ are finite divisors to $\infty$, they can be omitted as they do not affect the calculation. After removing $RC$ from the term $-\infty/RC$, we are left with $C{{\cal E}\left(1-e^{-\infty}\right)}$. Now, because $e^{-\infty} = 0$, we are left with $C{\cal E}$.In short, $\lim_{t \to \infty} Q(t) = C{\cal E}$.
+    
+    As time $t$ passes, we know that $Q(t)$ will increase because $Q(t)$ is the constant $C{\cal E}$ multiplied by the coefficient $1-e^{-t/RC}$. Since $e^x \geq 0$ for all real values of $x$, the highest that this coefficient can be is where $e^{-t/RC} = 0$ and the coefficient is therefore $1$. This is what the limit of $Q(t)$ as $t \to -\infty$ represents and is also the highest possible value of $Q(t)$ for any value of $t$. Furthermore, since our limit is given in terms of ${\cal E}$ and $C$ wherein ${\cal E}$ represents the voltage and $C$ represents the capacitance, we can conclude that their product $\lim_{t \to \infty} Q(t) = C{\cal E}$ represents the most charge that the capacitor in question can possibly hold in this circuit.
+    \item Since we know that $I = \frac{dQ}{dt}$, current $I$ as a function of time $t$ is simply the derivative of $Q(t)$ with respect to time. In fact, we have already inadvertently gotten $I(t)$ in our equivalence in 2.a.
+    \begin{align*}
+    I &= \frac{dQ}{dt}\\
+    I(t) &= \frac{d}{dt}Q(t)\\
+    &=\frac{d}{dt}[C{\cal E}(1-e^{-t/RC})]\\
+    &=\frac{{\cal E}e^{-t/RC}}{R}
+    \end{align*}
+    \item As more and more time passes, the circuit will continue to build charge in the capacitor at a logarithmic rate that gradually approaches $C{\cal E}$. In short, the charge $Q$ of the battery cell is being transferred to the capacitor at an ever-slowing rate over time.
 \end{enumerate}
 \color{black}
 
@@ -212,9 +230,24 @@ is a solution of the differential equation (3) with the initial condition $Q(0)=
 \color{blue}
 \textbf{Answers}
 \begin{enumerate}
-    \item Student answer goes here.
-    \item Student answer goes here.
-    \item Student answer goes here.
+    \item Since the battery has been removed from the circuit, we must remove $\cal E$ which represents the electromotive force provided by the battery to the circuit from the equation for Ohm's law which we were provided in question 2. This leaves us with the equation $\frac{dQ}{dt} = -\frac{Q}{RC}$.
+    \item The rate of discharge of a capacitor is the inverse of its rate of charge in the sense that, supposing functions $Q_{charging}(t)$ and $Q_{discharging}(t)$ representing the charge and discharge over time of a capacitor, their relationship is that $Q_{discharging}(t) = Q_{max} - Q_{charging}(t)$ where $Q_{int}$ represents the initial charge of the capacitor. Since the capacitor the figure 2 circuit is discharging, the equation should then be:
+    \begin{align*}
+ 	Q(t) &= C{\cal E} -  C{\cal E}(1-e^{-t/RC})\\
+ 	&= C{\cal E} -  C{\cal E} + C{\cal E}e^{-t/RC}\\
+ 	&=C{\cal E}e^{-t/RC}\\
+    \end{align*}
+    
+    To confirm that this satisfies the initial condition $Q(0) = Q_{max}$:
+    \begin{align*}
+    Q(0) &= C{\cal E}e^{-t/RC}\\
+    &= C{\cal E}e^{0}\\
+    &= C{\cal E}\\   
+    &= Q_{max} 
+    \end{align*}
+    \item The graph of $Q$ as a function of $t$ for the circuit in figure 2 is as follows:
+    
+    \includegraphics[scale=0.2]{./Images/graph2}
     \item Student answer goes here.
     \item Student answer goes here.
 \end{enumerate}
@@ -238,7 +271,9 @@ is a solution of the differential equation (3) with the initial condition $Q(0)=
 \begin{enumerate}
     \item Student answer goes here.
     \item Student answer goes here.
-    \item Student answer goes here.
+    \item The graph of piecewise function $Q(t)$ representing the continuous alternation between charge and discharge of the capacitor in intervals of $\tau = 5RC$ is as follows:
+    
+    \includegraphics[scale=0.2]{./Images/graph3}
 \end{enumerate}
 \color{black}
 
